@@ -1,6 +1,7 @@
+import API_KEY from "../config";
 const getLocation = (location) => {
   return fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=7f51b6111d82570a16630d07b316565f`
+    `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}`
   )
     .then((response) => {
       if (!response.ok) {

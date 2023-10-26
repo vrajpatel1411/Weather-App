@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 import getLocation from "../Services/getLocation";
 import getWeather from "../Services/getWeather";
+import { useContext } from "react";
+import weather_data from "../Services/WeatherData";
+
 function Homepage() {
-  const [weatherData, setWeatherData] = useState(null);
+  // eslint-disable-next-line no-unused-vars
+  const [weatherData, setWeatherData] = useContext(weather_data);
   const [location, UpdateLocation] = useState("Thunder Bay");
-  const [date, updateDate] = useState(null);
 
   useEffect(() => {
     if (location) {
@@ -21,22 +24,12 @@ function Homepage() {
     }
   }, [location]);
 
-  useEffect(() => {
-    if (weatherData) {
-      var utcSeconds = weatherData.current.dt;
-      var d = new Date(0);
-      d.setUTCSeconds(utcSeconds);
-      updateDate(d);
-    }
-  }, [weatherData]);
-
   return (
     <div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
           const formData = new FormData(e.target);
-
           UpdateLocation(formData.get("location"));
         }}>
         <label htmlFor="location">Enter the Location :</label>
@@ -47,22 +40,9 @@ function Homepage() {
           placeholder="Type city name"></input>
         <button type="Submit">Search Weather</button>
       </form>
-
-      {weatherData ? (
-        <div>
-          <h1>Weather Information</h1>
-
-          <h2>
-            Location: Latitude- {weatherData.lat}, Longitude - {weatherData.lon}{" "}
-            - {location}
-          </h2>
-          <p>Date: {date ? date.toLocaleString() : "N/A"}</p>
-          <p>Temperature: {Math.round(weatherData.current.temp - 273.15)} K</p>
-          <p>Description: {weatherData.current.weather[0].description}</p>
-        </div>
-      ) : (
-        <h2>Weather Details Loading</h2>
-      )}
+      <div>
+        <h1>{location}</h1>
+      </div>
     </div>
   );
   // }
