@@ -1,7 +1,7 @@
 import API_KEY from "../config";
 const getWeather = (lat, lon) => {
   return fetch(
-    `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+    `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
   )
     .then((response) => {
       if (!response.ok) {
