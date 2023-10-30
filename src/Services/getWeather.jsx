@@ -1,5 +1,8 @@
 import API_KEY from "../config";
-const getWeather = (lat, lon) => {
+const getWeather = ({ queryKey }) => {
+  let lat = queryKey[1]["lat"];
+  let lon = queryKey[1]["lon"];
+
   return fetch(
     `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
   )
