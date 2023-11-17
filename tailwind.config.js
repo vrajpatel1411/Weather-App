@@ -32,27 +32,47 @@ export default {
             transform: "rotate(360deg)",
           },
         },
-        content: {
+
+        sunrise: {
           "0%": {
-            Opacity: "0",
-          },
-          "25%": {
-            Opacity: "25%",
+            transform: "translateY(1.5rem)",
           },
           "50%": {
-            Opacity: "50%",
-          },
-          "75%": {
-            Opacity: "75%",
+            transform: "translateY(0.7rem)",
           },
           "100%": {
-            Opacity: "100%",
+            transform: "translateY(0rem)",
+          },
+        },
+        sunset: {
+          "0%": {
+            transform: "translateY(-1.5rem)",
+          },
+          "50%": {
+            transform: "translateY(-0.7rem)",
+          },
+          "100%": {
+            transform: "translateY(0rem)",
+          },
+        },
+        pulse1: {
+          "0%": {
+            opacity: "0",
+          },
+          "50%": {
+            opacity: "0.5",
+          },
+          "100%": {
+            opacity: "1",
           },
         },
       },
       animation: {
         "custom-Loader": "spin1 4s linear infinite",
-        "main-content": "content 10s ease-in-out infinite",
+        "main-content": "content 100s ease-in-out infinite",
+        "sunrise-animation": "sunrise 0.7s linear ",
+        "sunset-animation": "sunset 0.7s linear ",
+        pulses: "pulse1 0.3s ease-in-out forwards ",
       },
     },
   },

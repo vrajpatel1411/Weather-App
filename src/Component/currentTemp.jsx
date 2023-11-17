@@ -1,41 +1,53 @@
 /* eslint-disable react/prop-types */
+
 const CurrentTemp = ({ current_data }) => {
   let icon_url = "";
   if (current_data) {
     let weather = current_data["weather"];
-    console.log(current_data);
+
     icon_url = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
   }
 
   return (
     <div
       id="current_information"
-      className="w-6/12 bg-sky-200 rounded-md p-3 my-4">
+      className="w-auto flex-1 h-fit bg-sky-200 rounded-md p-1 my-2">
       <div
         id="temperature"
-        className="flex flex-row gap-4 items-center my-2">
+        className="flex flex-row  gap-4 justify-center items-center my-2">
         <div
           id="temp_icon"
-          className="mx-auto my-0">
+          className="mx-2 my-0">
           <img
-            className=" w-35 h-35 mx-auto my-0"
+            className=" w-24 h-24 mx-auto my-0"
             src={icon_url}
             alt="Temp Icon"></img>
-          <p className="text-lg font-medium">
-            Weather Description :
-            {current_data ? " " + current_data["weather"][0].description : ""}
-          </p>
+
+          <div
+            id="weather_Description"
+            className="flex flex-col  items-center ">
+            <p className="text-lg font-medium text-center">
+              Weather Description
+            </p>
+            <p className="text-lg font-semibold text-center">
+              {current_data
+                ? " " + current_data["weather"][0].description.toUpperCase()
+                : ""}
+            </p>
+          </div>
         </div>
-        <div className="flex flex-row mx-auto my-0">
-          <p className="text-6xl">{Math.round(current_data["temp"])} &deg;c </p>
-          <p className="text-lg font-medium mx-2">
-            Feels like {Math.round(current_data["feels_like"])} &deg; c
+        <div className="flex flex-col md:flex-row justify-center items-center mx-2 my-0">
+          <p className="text-3xl font-bold text-center">
+            {Math.round(current_data["temp"])} &deg;c{" "}
+          </p>
+          <p className="text-sm md:mx-2 font-medium text-center">
+            Feels like {Math.round(current_data["feels_like"])} &deg;c
           </p>
         </div>
       </div>
       <div
         id="other_temperature"
-        className="flex flex-row justify-center my-2 mx-2 gap-10">
+        className="flex flex-row flex-wrap justify-center my-3 mx-3 gap-10">
         <div
           id="current_humidity"
           className="flex flex-col items-center ">
