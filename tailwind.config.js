@@ -70,9 +70,9 @@ export default {
       animation: {
         "custom-Loader": "spin1 4s linear infinite",
         "main-content": "content 100s ease-in-out infinite",
-        "sunrise-animation": "sunrise 0.7s linear ",
-        "sunset-animation": "sunset 0.7s linear ",
-        pulses: "pulse1 0.3s ease-in-out forwards ",
+        "sunrise-animation": "sunrise 2s linear ",
+        "sunset-animation": "sunset 2s linear ",
+        "pulse-animation": "pulse1 1.5s linear",
       },
     },
   },

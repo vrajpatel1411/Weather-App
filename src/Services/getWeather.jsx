@@ -1,8 +1,7 @@
-import API_KEY from "../config";
 const getWeather = ({ queryKey }) => {
   let lat = queryKey[1]["lat"];
   let lon = queryKey[1]["lon"];
-
+  const API_KEY = import.meta.env.VITE_API_KEY;
   return fetch(
     `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
   )

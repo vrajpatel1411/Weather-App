@@ -1,5 +1,5 @@
-import API_KEY from "../config";
 const getLocation = async ({ queryKey }) => {
+  const API_KEY = import.meta.env.VITE_API_KEY;
   return await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${queryKey[1]}&appid=${API_KEY}`
   )

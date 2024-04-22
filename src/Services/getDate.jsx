@@ -5,7 +5,7 @@ const getDate = ({ weatherDate, timeZone }) => {
   d = d.toLocaleString("en-US", {
     timeZone,
   });
-  return new Date(d).toString();
+  return new Date(d).toLocaleString();
 };
 
 export default getDate;
