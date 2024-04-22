@@ -8,7 +8,7 @@ const SunTime = ({ current_data, timezone }) => {
       <div className="flex flex-row gap-2 m-2 p-2 items-center">
         <img
           className="w-24 h-24 animate-sunrise-animation"
-          src="src\assets\sunny.png"
+          src="\assets\sunny.png"
         />
         <p>
           {current_data
@@ -24,7 +24,7 @@ const SunTime = ({ current_data, timezone }) => {
       <div className="flex flex-row gap-2 m-2 p-2 items-center">
         <img
           className=" w-24 h-24 animate-sunset-animation"
-          src="src\assets\sun.png"
+          src="\assets\sun.png"
         />
         <p>
           {current_data

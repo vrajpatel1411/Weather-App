@@ -10,7 +10,7 @@ const HeaderLocation = ({ location, time, timezone }) => {
       <div className="flex flex-row gap-2 items-center ">
         <img
           className="w-6 h-6"
-          src="src/assets/home.png"></img>
+          src="/assets/home.png"></img>
         <h1 className="text-xl text-justify">{location}</h1>
       </div>
       <div>
